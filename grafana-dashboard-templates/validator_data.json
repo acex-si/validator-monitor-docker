@@ -146,13 +146,46 @@
           "legendFormat": "__auto",
           "range": false,
           "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "A6gM6OIVz"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "validators_stake",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "A6gM6OIVz"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "validators_delegation_stake",
+          "format": "table",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "E"
         }
       ],
       "title": "Current validator data",
       "transformations": [
         {
           "id": "concatenate",
-          "options": {}
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "field"
+          }
         },
         {
           "id": "organize",
@@ -160,16 +193,25 @@
             "excludeByName": {
               "NodeID 2": true,
               "NodeID 3": true,
+              "NodeID 4": true,
+              "NodeID 5": true,
               "Time": true,
+              "Value #D": false,
               "__name__ 1": true,
               "__name__ 2": true,
               "__name__ 3": true,
+              "__name__ 4": true,
+              "__name__ 5": true,
               "instance 1": true,
               "instance 2": true,
               "instance 3": true,
+              "instance 4": true,
+              "instance 5": true,
               "job 1": true,
               "job 2": true,
-              "job 3": true
+              "job 3": true,
+              "job 4": true,
+              "job 5": true
             },
             "indexByName": {},
             "renameByName": {
@@ -177,6 +219,8 @@
               "Value #A": "Start time",
               "Value #B": "End time",
               "Value #C": "Uptime",
+              "Value #D": "Stake amount",
+              "Value #E": "Delegation amount",
               "instance 1": "",
               "job 3": ""
             }
@@ -193,7 +237,8 @@
               {
                 "destinationType": "time",
                 "targetField": "Value #B"
-              }
+              },
+              {}
             ],
             "fields": {}
           }
@@ -217,6 +262,6 @@
   "timezone": "",
   "title": "Current Validator Data",
   "uid": "qKR5X094k",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
